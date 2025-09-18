@@ -69,3 +69,52 @@ A Python application that recognizes static hand gestures in real-time using a w
 5.  **Visualization:** The hand landmarks, bounding box, and predicted gesture label are drawn on the frame and displayed.
 
 ## 📁 Project Structure
+hand-gesture-recognition/
+├── data/ # Directory for training data (CSV files)
+├── models/ # Directory for saved models
+│ └── gesture_model.pkl # Pre-trained model
+├── recognize_gesture.py # Main script for real-time recognition
+├── collect_data.py # Script to collect training data for new gestures
+├── train_model.py # Script to train a new model on collected data
+├── requirements.txt # List of dependencies
+└── README.md
+
+
+## 🛠️ Training on Custom Gestures
+
+Want to teach the system new gestures? It's easy!
+
+1.  **Collect Data:**
+    ```bash
+    python collect_data.py --label thumbs_up --samples 300
+    ```
+    This will save 300 data samples for the "thumbs_up" gesture. Repeat for other gestures.
+
+2.  **Train the Model:**
+    ```bash
+    python train_model.py
+    ```
+    This will train a new model on all the data in the `data/` directory and save it as `models/your_new_model.pkl`.
+
+3.  **Update the Recognition Script:** Point the `recognize_gesture.py` script to load your new model.
+
+## 🔮 Future Enhancements
+
+- **Dynamic Gestures:** Recognize sequences of movements (e.g., swipes, circles).
+- **Volume Control:** Implement a volume control gesture using the distance between thumb and index finger.
+- **Background Suppression:** Improve detection in cluttered backgrounds.
+- **Deep Learning Model:** Replace the classic ML model with a simple neural network for potentially higher accuracy.
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request for any improvements.
+
+## 📜 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+## 🙏 Acknowledgments
+
+- [Google MediaPipe](https://mediapipe.dev/) for the excellent hand landmark model.
+- The OpenCV community for continuous development and support.
+
